@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 
-
 \setlength{\parindent}{0pt}
 \usepackage{xltxtra}
 \usepackage{hyperref}
@@ -18,7 +17,6 @@
 \usepackage{enumitem}
 \CJKsetecglue{} %% 取消中文与数字之间的间隙
 
-
 %% 主文档字体设置
 \setmainfont[
     Path = fonts/Main/,
@@ -32,7 +30,6 @@
     Extension = .ttf,
     BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
 ]{NotoSansSC-Regular.otf} % 正文字体
-
 
 \usepackage{relsize}
 \usepackage{xspace}
@@ -55,101 +52,115 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
 \setlist[itemize]{topsep=0.25em, leftmargin=*}
 \setlist[enumerate]{topsep=0.25em, leftmargin=*}
 
 % --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em} % <--- 在此调整项目之间的距离
+\setlength{\interProjectSpacing}{0.9em}
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
 % --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em} % <--- 在此调整标题和描述的距离
+\setlength{\intraProjectTitleSep}{0.4em}
 \newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
 % --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em} % <--- 在此调整描述和列表的距离
+\setlength{\intraProjectListTopSep}{0.2em}
 
 % =======================================================================
 
-
-\titleformat{\section}         % 定制 \section 命令 
-{\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
-{}                           % 可用于在标题前插入代码
-[{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
+\titleformat{\section}
+{\large\bfseries\raggedright}
+{}{0em}
+{}
+[{\color{CVBlue}\titlerule}]
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
-
-
 
 \begin{document}
 \pagenumbering{gobble}
 
-%%%% 利用tikz来定位照片
+%%%% 头像与Logo
 \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
-  \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-  \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{胡豆}} 
+\end{tikzpicture}%
+\begin{tikzpicture}[remember picture, overlay] 
+    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=1.5cm]{ecust.png}};
+\end{tikzpicture}%
 
-\centerline{\normalsize{\faPhone\ 111-1111-1111 \quad \faEnvelopeO\ \href{mailto:3230100000@zju.edu.cn}{3230100000@zju.edu.cn}}} 
+\centerline{\LARGE\bfseries{徐凯赟}} 
+\centerline{\normalsize{求职意向：人工智能 / 计算机视觉 / 深度学习算法工程师}}
+\centerline{\normalsize{\faPhone\ *** \quad \faEnvelopeO\ \href{mailto:18321775619@163.com}{18321775619@163.com}}} 
+\centerline{\normalsize{\faGithubSquare\ \href{https://github.com/guoshenghuo}{https://github.com/guoshenghuo}}} 
 
-\centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{https://github.com/maksymilan} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{https://maksymilan.github.io}}} 
-    
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
-CC98烂坑挖掘工程与技术\quad 大二 
+\textbf{华东理工大学} \hfill 2023.09 -- 2027.06（预期）\\[0.5em]
+信息工程专业 本科
 \begin{itemize}[nosep]
-    \item 相关课程：《烂坑挖掘及基础》、《高级挖坑技巧》、《烂坑数理统计》
+    \item GPA：3.76/4.0，专业排名前10%
+    \item 核心课程：机器学习、数字图像处理、信号处理
 \end{itemize}
 
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目/科研经历}
 
-% --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
-项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
+% 项目1
+\textbf{基于图卷积网络与合成数据的艺术风格抄袭判定} \hfill 2025.11 \titlebreak
+剑桥大学项目 | PyTorch, GCN, 可解释性分析
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+    \item 设计语义注意力对比图，实现AI生成图像的视觉相似度可解释性分析
+    \item 搭建基于GCN+MLP的图像相似度学习框架，完成pairwise风格判别
+    \item 在ImageNet子集上训练评估，使用Stable Diffusion生成多风格画作并输出相似度评分
+    \item 负责模型设计、训练、实验验证与代码实现
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
-% --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
+% 项目2
+\textbf{视频说话人转录与字幕对齐系统} \hfill 2025.07 -- 2025.08 \titlebreak
+UBC暑期科研项目 | Whisper, 人脸检测, 多模态对齐
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+    \item 搭建端到端视频转文字pipeline，支持多语音场景
+    \item 基于Whisper实现语音识别与语种检测
+    \item 结合人脸检测与聚类算法，完成字幕-说话人自动对齐
+    \item 负责全流程开发、算法集成与效果优化
 \end{itemize}
 
-\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
+\projectsep
+
+% 项目3
+\textbf{基于3D高斯泼溅的三维建模与生成} \hfill 2025.09 -- 2026.05 \titlebreak
+线上科研项目 | 3D Gaussian Splatting, FLAME, 多视角扩散
+\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
+    \item 基于多视角扩散模型先验，构建高保真人脸重建与虚拟人生成系统
+    \item 降低单张图片重建细节损失，融合FLAME参数化模型
+    \item 相比基线方法，提升多视角一致性与真实感效果
+    \item 负责算法实现、模型优化、实验对比
+\end{itemize}
+
+\section{\makebox[\widthof{\faFileTextO}][c]{\color{CVBlue}\faFileTextO}\ 论文成果}
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} \textbf{Go}, Python, C++
-    \item \textbf{开发工具：} SSH, Git, Vim, MakeFile,LaTex
-    \item \textbf{操作系统：} Linux
+    \item \textbf{LIFTINGAVATAR: HIGH-FIDELITY ANIMATABLE 3D GAUSSIAN AVATAR FROM SINGLE IMAGE} \\
+    2026 | 第一作者 | 在投
 \end{itemize}
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
-\begin{itemize}
-    \item CC98年度用户 \hfill 2023.12
-    
+
+\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 专业技能}
+\begin{itemize}[nosep]
+    \item \textbf{编程语言：} Python / C / MATLAB
+    \item \textbf{框架工具：} PyTorch / Git / Linux / Arduino
+    \item \textbf{研究方向：} 计算机视觉、3D重建、GNN、深度学习、嵌入式基础
 \end{itemize}
-    
-\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
-\begin{itemize}[parsep=0.5ex]
-    \item \textbf{技术博客：} \href{https://maksymilan.github.io/}{https://maksymilan.github.io/}
-    \item \textbf{GitHub：} \href{https://github.com/maksymilan}{https://github.com/maksymilan} 
-    \item \textbf{英语水平：} CET-4, CET-6
+
+\section{\makebox[\widthof{\faLanguage}][c]{\color{CVBlue}\faLanguage}\ 语言能力}
+\begin{itemize}[nosep]
+    \item 英语：IELTS 7.0
+    \item 具备剑桥大学、UBC海外科研经历
 \end{itemize}
+
+\section{\makebox[\widthof{\faStar}][c]{\color{CVBlue}\faStar}\ 个人优势}
+\begin{itemize}[nosep]
+    \item 专业成绩优异，数学与算法基础扎实
+    \item 拥有完整AI项目实践，独立完成模型设计、训练与实验验证
+\end{itemize}
+
 \end{document}
